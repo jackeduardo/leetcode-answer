@@ -10,7 +10,7 @@ func main() {
 	fmt.Println(maxProfit(prices))
 	fmt.Println(maxProfitDp(prices))
 }
-//贪心算法，只要今天价格高于昨天就卖，获取最大理论，依据可以通过 a<b<c<d推导
+//贪心算法，只要今天价格高于昨天就卖，获取最大利润，依据可以通过 a<b<c<d推导
 func maxProfit(prices []int) int{
 	n:=len(prices)
 	profit:=0
