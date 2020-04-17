@@ -3,6 +3,8 @@ My repository for leetcode algorithm
 
 leetcode上的算法整理
 写了一些我对一些算法的理解和套路，希望与大家一起分享探讨
+本人算法菜鸟
+主要目的是练习golang语法和进行算法训练
 
 项目里面的search.exe是一个索引工具
 
