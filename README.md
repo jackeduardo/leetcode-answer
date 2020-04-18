@@ -1,7 +1,7 @@
 # leetcode-answer
 My repository for leetcode algorithm
 
-leetcode上的算法整理
+leetcode上的算法整理（以tag来整理）
 写了一些我对一些算法的理解和套路，希望与大家一起分享探讨
 本人算法菜鸟
 主要目的是练习golang语法和进行算法训练
