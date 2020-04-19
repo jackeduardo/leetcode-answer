@@ -44,10 +44,10 @@ func solveSudoku(board [][]byte)  {
 			}
 		}
 	}
-	backtrack(board,row,col,block,0,0)
+	backtrackSoduku(board,row,col,block,0,0)
 }
 //由于每一步（填充）的前进都要判断是否符合条件，并且影响着前一步是否该放弃，所以此函数返回值应该是bool，void的方法我还没有想出来
-func backtrack(board [][]byte,row [9][9]bool,col [9][9]bool,block [9][9]bool,i int,j int) bool{
+func backtrackSoduku(board [][]byte, row, col, block [9][9]bool, i, j int) bool {
 	//边界校验，为了换行需求，之后如果填充完成，return true
 	if j==len(board[0]){
 		j=0
@@ -64,7 +64,7 @@ func backtrack(board [][]byte,row [9][9]bool,col [9][9]bool,block [9][9]bool,i i
 				row[i][n]=true
 				col[j][n]=true
 				block[blockindex][n]=true
-				if backtrack(board,row,col,block,i,j+1){
+				if backtrackSoduku(board,row,col,block,i,j+1){
 					return true
 				}
 				board[i][j]='.'
@@ -74,7 +74,7 @@ func backtrack(board [][]byte,row [9][9]bool,col [9][9]bool,block [9][9]bool,i i
 			}
 		}
 	}else{
-		return backtrack(board,row,col,block,i,j+1)
+		return backtrackSoduku(board,row,col,block,i,j+1)
 	}
 	return false
 }
