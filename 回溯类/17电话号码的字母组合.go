@@ -26,18 +26,18 @@ func letterCombinations(digits string) []string {
 	for i := 0; i < len(digits); i++ {
 		input[i] = table[digits[i]]
 	}
-	backtrackletterCombinations(input, 0, &res, len(digits), *new(string))
+	backtrack_letterCombinations(input, 0, &res, len(digits), *new(string))
 	return res
 }
 
-func backtrackletterCombinations(input []string, level int, res *[]string, length int, out string) {
+func backtrack_letterCombinations(input []string, level int, res *[]string, length int, out string) {
 	if length == level {
 		*res = append(*res, out)
 		return
 	}
 	for i := 0; i < len(input[level]); i++ {
 		out += string(input[level][i])
-		backtrackletterCombinations(input, level+1, res, length, out)
+		backtrack_letterCombinations(input, level+1, res, length, out)
 		out = out[:len(out)-1]
 	}
 

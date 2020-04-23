@@ -20,11 +20,11 @@ func combinationSum2(candidates []int, target int) [][]int {
 		return res
 	}
 	sort.Ints(candidates)
-	backtrackcombinationSum2(candidates, 0, &res, &temp, target)
+	backtrack_combinationSum2(candidates, 0, &res, &temp, target)
 	return res
 }
 
-func backtrackcombinationSum2(candidates []int, level int, res *[][]int, temp *[]int, target int) {
+func backtrack_combinationSum2(candidates []int, level int, res *[][]int, temp *[]int, target int) {
 	if target < 0 {
 		return
 	}
@@ -43,7 +43,7 @@ func backtrackcombinationSum2(candidates []int, level int, res *[][]int, temp *[
 			continue
 		}
 		*temp = append(*temp, candidates[i])
-		backtrackcombinationSum2(candidates, i+1, res, temp, target-candidates[i])
+		backtrack_combinationSum2(candidates, i+1, res, temp, target-candidates[i])
 		*temp = (*temp)[:len(*temp)-1]
 
 	}

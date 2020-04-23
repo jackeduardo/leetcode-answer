@@ -10,7 +10,8 @@ leetcode上的算法整理（以tag来整理）
 
 操作如下：
 ./search 122
-后面的数字为leetcode题号
+后面的数字为leetcode题号（不包括leetcode中文版里面的面试题）
+有个单独的目录“面试题类” 一共没几题，直接在目录下查找就行
 
 详细了解操作信息：
 ./search -h

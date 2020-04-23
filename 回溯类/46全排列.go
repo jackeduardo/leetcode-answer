@@ -19,13 +19,13 @@ func permute(nums []int) [][]int {
 	var res [][]int
 	var out []int
 	visited := make([]int, len(nums))
-	backtrackPermute(nums, 0, visited, &out, &res)
+	backtrack_Permute(nums, 0, visited, &out, &res)
 	return res
 }
 
 //虽然这里个out用不用指针的效果是一样的，因为每一层append重新分配的内存都是绑定在同一个变量上的，这一题的函数并不影响结果，而
 //如果同一层内发生了其他的函数操作那么就会出错，但是为了以后发生相关的问题，用指针更好，因为使用指针，可以确保append永远是对用一个变量不停分配地址，确保操作一定会发生在原slice上
-func backtrackPermute(nums []int, level int, visited []int, out *[]int, res *[][]int) {
+func backtrack_Permute(nums []int, level int, visited []int, out *[]int, res *[][]int) {
 	if level == len(nums) {
 		temp := make([]int, len(*out))
 		copy(temp, *out)
@@ -38,7 +38,7 @@ func backtrackPermute(nums []int, level int, visited []int, out *[]int, res *[][
 		}
 		visited[i] = 1
 		*out = append(*out, nums[i])
-		backtrackPermute(nums, level+1, visited, out, res)
+		backtrack_Permute(nums, level+1, visited, out, res)
 		*out = (*out)[:len(*out)-1]
 		visited[i] = 0
 	}

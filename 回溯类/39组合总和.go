@@ -16,11 +16,11 @@ func combinationSum(candidates []int, target int) [][]int {
 	if candidates == nil {
 		return res
 	}
-	backtrackcombinationSum(candidates, 0, &res, &temp, target)
+	backtrack_combinationSum(candidates, 0, &res, &temp, target)
 	return res
 }
 
-func backtrackcombinationSum(candidates []int, level int, res *[][]int, temp *[]int, target int) {
+func backtrack_combinationSum(candidates []int, level int, res *[][]int, temp *[]int, target int) {
 	if target < 0 {
 		return
 	}
@@ -32,7 +32,7 @@ func backtrackcombinationSum(candidates []int, level int, res *[][]int, temp *[]
 	}
 	for ; level < len(candidates); level++ {
 		*temp = append(*temp, candidates[level])
-		backtrackcombinationSum(candidates, level, res, temp, target-candidates[level])
+		backtrack_combinationSum(candidates, level, res, temp, target-candidates[level])
 		*temp = (*temp)[:len(*temp)-1]
 	}
 }
