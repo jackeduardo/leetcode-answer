@@ -5,13 +5,13 @@ import "fmt"
 //var res [][]string
 
 func main() {
-	res:=solveNQueens(4)
+	res:=solveNQueens(5)
 	printQueens(res)
 }
 func printQueens(string[][]string){
 	for _, r := range string {
 		for _, c := range r {
-			fmt.Print(c," ")
+			fmt.Println(c," ")
 		}
 		fmt.Println()
 	}
