@@ -3,23 +3,25 @@ package main
 import (
 	"container/list"
 	"fmt"
+	"leetcode-answer/Methods"
+	"leetcode-answer/Types"
 	"strconv"
 )
 
 func main() {
 	arr := "[1,2,2,3,4,4,3]"
-	root := createTree(arr)
+	root := Methods.CreateTree(arr)
 	fmt.Print(isSymmetric_iteration(root))
 }
 
 //递归
-func isSymmetric(root *TreeNode) bool {
+func isSymmetric(root *Types.TreeNode) bool {
 	if root == nil {
 		return true
 	}
 	return ismirror(root, root)
 }
-func ismirror(a *TreeNode, b *TreeNode) bool {
+func ismirror(a *Types.TreeNode, b *Types.TreeNode) bool {
 	if a == nil && b == nil {
 		return true
 	}
@@ -34,7 +36,7 @@ func ismirror(a *TreeNode, b *TreeNode) bool {
 
 //迭代
 
-func isSymmetric_iteration(root *TreeNode) bool {
+func isSymmetric_iteration(root *Methods.TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -44,7 +46,7 @@ func isSymmetric_iteration(root *TreeNode) bool {
 		length := L.Len()
 		templist := make([]string, L.Len()) //利用一个临时的string切片记录本层的数据，然后回文串判断
 		for i := 0; i < length; i++ {
-			temp := L.Remove(L.Front()).(*TreeNode)
+			temp := L.Remove(L.Front()).(*Methods.TreeNode)
 			if temp != nil {
 				L.PushBack(temp.Left)
 				L.PushBack(temp.Right)
