@@ -48,7 +48,7 @@ func solveSudoku(board [][]byte) {
 	backtrack_Soduku(board, row, col, block, 0, 0)
 }
 
-//由于每一步（填充）的前进都要判断是否符合条件，并且影响着前一步是否该放弃，所以此函数返回值应该是bool，void的方法我还没有想出来
+//返回bool的目的是因为解数独只需要一解就行，成功后，直接全部返回true，减少复杂度
 func backtrack_Soduku(board [][]byte, row, col, block [9][9]bool, i, j int) bool {
 	//边界校验，为了换行需求，之后如果填充完成，return true
 	if j == len(board[0]) {
