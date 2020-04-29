@@ -36,7 +36,7 @@ func ismirror(a *Types.TreeNode, b *Types.TreeNode) bool {
 
 //迭代
 
-func isSymmetric_iteration(root *Methods.TreeNode) bool {
+func isSymmetric_iteration(root *Types.TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -46,7 +46,7 @@ func isSymmetric_iteration(root *Methods.TreeNode) bool {
 		length := L.Len()
 		templist := make([]string, L.Len()) //利用一个临时的string切片记录本层的数据，然后回文串判断
 		for i := 0; i < length; i++ {
-			temp := L.Remove(L.Front()).(*Methods.TreeNode)
+			temp := L.Remove(L.Front()).(*Types.TreeNode)
 			if temp != nil {
 				L.PushBack(temp.Left)
 				L.PushBack(temp.Right)
