@@ -8,9 +8,9 @@ import (
 //否则一步一步按照计算机递归过后再退栈的实际操作过程来思考问题非常耗时耗力，而且在理解上很容易犯错误,利用等效转换的思路，思考第一层大的问题，后序的层面依靠递归来解决即可
 //所以写递归就是考虑函数作用是什么，递归下去的输入时什么，所以应该先写函数干什么，再写递归位置
 func main() {
-	arr:="[1,2,5,3,4,null,6]"
+	arr:="[0]"
 	root:=Methods.CreateTree(arr)
-	flatten2(root)
+	flatten(root)
 	Methods.PrintTree(root)
 }
 //巧妙利用后序
