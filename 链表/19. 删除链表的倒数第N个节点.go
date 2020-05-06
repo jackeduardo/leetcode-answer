@@ -1,16 +1,19 @@
 package main
 
-import "leetcode-answer/Methods"
+import (
+	"leetcode-answer/Methods"
+	"leetcode-answer/Types"
+)
 
 func main() {
 	nums := []int{1, 2, 3, 4}
-	head := Methods.makeListNode(nums)
+	head := Methods.MakeListNode(nums)
 	head = removeNthFromEnd(head, 4)
-	Methods.printList(head)
+	Methods.PrintList(head)
 }
 
 //常规方法，通过记录长度来实现
-func removeNthFromEnd(head *Methods.ListNode, n int) *Methods.ListNode {
+func removeNthFromEnd(head *Types.ListNode, n int) *Types.ListNode {
 	if head == nil {
 		return nil
 	}
@@ -30,7 +33,7 @@ func removeNthFromEnd(head *Methods.ListNode, n int) *Methods.ListNode {
 
 }
 
-func removeNode(index int, head *Methods.ListNode) {
+func removeNode(index int, head *Types.ListNode) {
 	cur := head
 	for index > 1 {
 		cur = cur.Next
@@ -41,8 +44,8 @@ func removeNode(index int, head *Methods.ListNode) {
 
 //快慢指针，快指针先走
 //创建一个dummy的原因是因为如果head开始计算的话会差一次移动次数，所以创建一个节点在head之前
-func removeNthFromEnd_FastSlowPointers(head *Methods.ListNode, n int) *Methods.ListNode {
-	dummy := new(Methods.ListNode)
+func removeNthFromEnd_FastSlowPointers(head *Types.ListNode, n int) *Types.ListNode {
+	dummy := new(Types.ListNode)
 	dummy.Next = head
 	fast := dummy
 	slow := dummy
