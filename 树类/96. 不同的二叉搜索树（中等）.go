@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	num:=3
+	num := 3
 	fmt.Println(numTrees(num))
 }
 
@@ -12,12 +12,12 @@ func main() {
 //对于每一个根i他都是由左边子树（1, 2, ..., i - 1)和右边子树（i + 1, i + 2, ..., n)组成的。因此他的个数肯定是两个子树情况的积。而且，这种根一共有n个，再将这些加起来就可以了。
 
 func numTrees(n int) int {
-	dp:=make([]int,n+1)
-	dp[0]=1
+	dp := make([]int, n+1)
+	dp[0] = 1
 
-	for i := 1; i<n+1; i++ {
-		for j := 1; j<i+1; j++ {
-			dp[i]+=dp[j-1]*dp[i-j]
+	for i := 1; i < n+1; i++ {
+		for j := 1; j < i+1; j++ {
+			dp[i] += dp[j-1] * dp[i-j]
 		}
 	}
 	return dp[n]

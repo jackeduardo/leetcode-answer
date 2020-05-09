@@ -40,7 +40,7 @@ func CreateTree(input string) *Types.TreeNode {
 	return res
 }
 
-func PrintTree(root *Types.TreeNode){
+func PrintTree(root *Types.TreeNode) {
 	var res [][]int
 	if root == nil {
 		fmt.Println(res)
