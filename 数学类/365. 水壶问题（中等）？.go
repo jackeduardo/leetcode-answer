@@ -3,36 +3,36 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(canMeasureWater(3,5,4))
+	fmt.Println(canMeasureWater(3, 5, 4))
 }
 
 //数学解法，关键在于理解两个杯子至少一个是空的或者满的
 //公式ax+by=m, ab表示的就是操作，正为增，负为减
 //当且仅当m%gcd(x,y)==0时，有解
 func canMeasureWater(x int, y int, z int) bool {
-	if x==0 && y==0 {
-		return z==0
+	if x == 0 && y == 0 {
+		return z == 0
 	}
 
-	if z > x + y {
+	if z > x+y {
 		return false
 	}
 
 	a := 0
-	if y==0 {
-		a = gcd(y,x)
+	if y == 0 {
+		a = gcd(y, x)
 	} else {
-		a = gcd(x,y)
+		a = gcd(x, y)
 	}
 
 	return z%a == 0
 }
 
-func gcd(a,b int) int {
-	if a%b ==0 {
+func gcd(a, b int) int {
+	if a%b == 0 {
 		return b
 	}
-	return gcd(b,a%b)
+	return gcd(b, a%b)
 }
 
 //bfs方法
@@ -40,7 +40,6 @@ type State struct {
 	X int
 	Y int
 }
-
 
 // 从(0,0)-->(z,0) || (0,z)) || (X,Y),X+Y=z的路径可达性
 func canMeasureWater_bfs(x int, y int, z int) bool {

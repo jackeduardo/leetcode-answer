@@ -18,8 +18,9 @@ var path string
 var category []string
 var paths []string
 var h = flag.Bool("h", false, "此脚本负责获取题目的相对路径，默认第二个命令行参数为leetcode的题号，输入./search 12即可")
-var c=	flag.Bool("c", false, "查看当前一共整理了多少题")
+var c = flag.Bool("c", false, "查看当前一共整理了多少题")
 var questioncount int
+
 func main() {
 	flag.Parse()
 	if *h {
@@ -27,7 +28,7 @@ func main() {
 		return
 	}
 	if *c {
-		fmt.Printf("当前一共整理了%d道题",getcount())
+		fmt.Printf("当前一共整理了%d道题", getcount())
 		return
 	}
 	num := os.Args[1]
@@ -40,7 +41,7 @@ func main() {
 	fmt.Println(path)
 
 }
-func getcount() int{
+func getcount() int {
 	pwd, _ := os.Getwd()
 	//获取当前目录下的文件或目录名(包含路径)
 	fileInfoList, err := ioutil.ReadDir(pwd)
@@ -69,8 +70,7 @@ func getcount() int{
 			log.Println(err)
 		}
 	}
-	return  questioncount
-
+	return questioncount
 
 }
 
