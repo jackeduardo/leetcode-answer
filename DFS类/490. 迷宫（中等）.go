@@ -9,7 +9,7 @@ func main() {
 		{0, 0, 0},
 	}
 	start := []int{0, 0}
-	destination := []int{1,2}
+	destination := []int{1, 2}
 	fmt.Println(hasPath(maze, start, destination))
 }
 

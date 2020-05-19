@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	nums := []int{1,1,2,2,2}
+	nums := []int{1, 1, 2, 2, 2}
 	fmt.Println(makesquare(nums))
 }
 
@@ -29,11 +29,12 @@ func makesquare(nums []int) bool {
 			return false
 		}
 	}
-	sort.Sort(sort.Reverse(sort.IntSlice(nums)))//排序降复杂度
+	sort.Sort(sort.Reverse(sort.IntSlice(nums))) //排序降复杂度
 	//return makesquare_dfs(nums, 0, len(nums), 0, 0, 0, 0, sum/4)
-	return makesquare_backtrack(nums,0,[]int{0,0,0,0},sum/4)
+	return makesquare_backtrack(nums, 0, []int{0, 0, 0, 0}, sum/4)
 
 }
+
 //dfs，每一层就是每个index，每一层4条边都去尝试构造边长加上num[index]，超长了就返回false，最后四条边里都是保存着最后的长度，如果长度都是side，那么返回true
 func makesquare_dfs(nums []int, i int, length int, i1 int, i2 int, i3 int, i4 int, side int) bool {
 	if i == length {
@@ -55,24 +56,23 @@ func makesquare_dfs(nums []int, i int, length int, i1 int, i2 int, i3 int, i4 in
 
 //回溯剪枝，分别对每一条边构造
 
-
-func makesquare_backtrack(nums []int, pos int,sides []int, side int) bool {
-	if pos==len(nums) {
+func makesquare_backtrack(nums []int, pos int, sides []int, side int) bool {
+	if pos == len(nums) {
 		if sides[0] == side && sides[1] == side && sides[2] == side && sides[3] == side {
 			return true
 		} else {
 			return false
 		}
 	}
-	for i := 0; i <4; i++ {
-		if sides[i]+nums[pos]>side{
+	for i := 0; i < 4; i++ {
+		if sides[i]+nums[pos] > side {
 			continue
 		}
-		sides[i]+=nums[pos]
-		if makesquare_backtrack(nums,pos+1,sides,side){
+		sides[i] += nums[pos]
+		if makesquare_backtrack(nums, pos+1, sides, side) {
 			return true
 		}
-		sides[i]-=nums[pos]
+		sides[i] -= nums[pos]
 	}
 	return false
 }
