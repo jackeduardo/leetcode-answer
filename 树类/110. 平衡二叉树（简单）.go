@@ -50,4 +50,3 @@ func isBalanced_depth(root *Types.TreeNode) int {
 	}
 	return Methods.Max(isBalanced_depth(root.Left), isBalanced_depth(root.Right)) + 1
 }
-

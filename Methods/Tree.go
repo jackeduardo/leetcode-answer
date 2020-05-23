@@ -64,3 +64,21 @@ func PrintTree(root *Types.TreeNode) {
 	}
 	fmt.Println(res)
 }
+
+func GetNode(root *Types.TreeNode,val int) *Types.TreeNode{
+	if root == nil {
+		return nil
+	}
+	if root.Val==val{
+		return root
+	}
+	Left:=GetNode(root.Left,val)
+	Right:=GetNode(root.Right,val)
+	if Left!=nil{
+		return Left
+	}
+	if Right!=nil{
+		return Right
+	}
+	return nil
+}

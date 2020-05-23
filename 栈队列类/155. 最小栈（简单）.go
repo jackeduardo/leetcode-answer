@@ -1,4 +1,4 @@
-package 栈类
+package main
 
 import "math"
 
