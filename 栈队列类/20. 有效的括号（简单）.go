@@ -8,7 +8,7 @@ func main() {
 
 //利用stack，摘抄
 func isValid(s string) bool {
-	hash := map[byte]byte{')':'(', ']':'[', '}':'{'}
+	hash := map[byte]byte{')': '(', ']': '[', '}': '{'}
 	stack := make([]byte, 0)
 	if s == "" {
 		return true
