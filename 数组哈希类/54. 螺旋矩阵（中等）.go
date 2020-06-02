@@ -6,13 +6,13 @@ import (
 
 func main() {
 	matrix := [][]int{
-		{1, 2, 3},
-		{4, 5, 6},
-		{7, 8, 9},
+		{1, 2, 3,4},
+		{5, 6, 7,8},
+		{9, 10, 11,12},
 	}
 	fmt.Println(spiralOrder(matrix))
 }
-
+//螺旋搜索，由于是矩阵而不一定是正方形，所以在循环内部添加边界判断，不符合就break，否则如果是长方形，那么会多出来不必要的数据
 func spiralOrder(matrix [][]int) []int {
 	res := make([]int, 0)
 	if len(matrix) == 0 {
