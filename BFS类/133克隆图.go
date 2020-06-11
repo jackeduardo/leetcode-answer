@@ -1,4 +1,4 @@
-package BFS类
+package main
 
 import "container/list"
 
