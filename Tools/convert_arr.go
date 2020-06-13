@@ -1,12 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	arr := "[[0,0,1,0,0],[0,0,0,0,0],[0,0,0,1,0],[1,1,0,1,1],[0,0,0,0,0]]"
-
-	fmt.Println(convert(arr))
-}
+package Tools
 
 func convert(arr string) string {
 	bytes := []byte(arr)
@@ -26,4 +18,14 @@ func convert(arr string) string {
 		}
 	}
 	return string(bytes)
+}
+
+func Convert_DqToSq(input string)string{
+	str:=[]byte(input)
+	for i := 0; i <len(input); i++ {
+		if str[i]=='"'{
+			str[i]='\''
+		}
+	}
+	return string(str)
 }
