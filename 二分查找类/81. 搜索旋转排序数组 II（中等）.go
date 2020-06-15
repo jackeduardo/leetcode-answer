@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	nums:=[]int{2,5,6,0,0,1,2}
-	fmt.Println(search(nums,0))
+	nums := []int{2, 5, 6, 0, 0, 1, 2}
+	fmt.Println(search(nums, 0))
 }
 
 func search81(nums []int, target int) bool {
@@ -20,15 +20,15 @@ func search81(nums []int, target int) bool {
 			} else {
 				right = mid - 1
 			}
-		} else if nums[mid] > nums[right]{
+		} else if nums[mid] > nums[right] {
 			if nums[left] <= target && target < nums[mid] {
 				right = mid - 1
 			} else {
 				left = mid + 1
 			}
-		}else {
+		} else {
 			//去重，去掉干扰位置,一次次去保证没有遗漏
-			if nums[mid]==nums[left]{
+			if nums[mid] == nums[left] {
 				left++
 			}
 			right--

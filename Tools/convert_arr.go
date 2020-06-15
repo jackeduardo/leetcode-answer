@@ -20,11 +20,11 @@ func convert(arr string) string {
 	return string(bytes)
 }
 
-func Convert_DqToSq(input string)string{
-	str:=[]byte(input)
-	for i := 0; i <len(input); i++ {
-		if str[i]=='"'{
-			str[i]='\''
+func Convert_DqToSq(input string) string {
+	str := []byte(input)
+	for i := 0; i < len(input); i++ {
+		if str[i] == '"' {
+			str[i] = '\''
 		}
 	}
 	return string(str)

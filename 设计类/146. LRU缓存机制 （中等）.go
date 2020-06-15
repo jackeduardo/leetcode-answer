@@ -1,4 +1,5 @@
 package 设计类
+
 //摘抄
 type LRUCache struct {
 	cap    int
@@ -46,9 +47,9 @@ func (this *LRUCache) Put(key int, value int) {
 		// 不存在
 		// 如果容器已经满了，需要删除链表尾部,从map中删除
 		if len(this.m) >= this.cap {
-			deletekey:=this.tail.pre.key
+			deletekey := this.tail.pre.key
 			this.remove(this.tail.pre)
-			delete(this.m,deletekey)
+			delete(this.m, deletekey)
 		}
 
 		//创建新的节点,并放在head,添加到map中

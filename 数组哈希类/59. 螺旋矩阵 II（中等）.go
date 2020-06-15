@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	fmt.Println(generateMatrix(3))
 }
+
 //由于是正方形，不必担心会多出来数据，因为正方形中一个边界条件不符合，其他边界条件肯定都不符合，不会进入不必要的循环
 func generateMatrix(n int) [][]int {
 	res := make([][]int, n)

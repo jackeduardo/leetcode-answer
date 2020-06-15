@@ -28,8 +28,8 @@ func main() {
 		return
 	}
 	if *c {
-		count:=getcount()
-		fmt.Printf("当前一共整理了%d题\n",count)
+		count := getcount()
+		fmt.Printf("当前一共整理了%d题\n", count)
 		return
 	}
 	num := os.Args[1]

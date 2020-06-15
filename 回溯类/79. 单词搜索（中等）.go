@@ -10,6 +10,7 @@ func main() {
 	}
 	fmt.Println(exist(board, "ABCB"))
 }
+
 //依然是回溯算法的应用
 func exist(board [][]byte, word string) bool {
 	visited := make([][]bool, len(board))
