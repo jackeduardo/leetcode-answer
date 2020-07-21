@@ -17,10 +17,11 @@ func waysToChange(n int) int {
 		dp[i] = make([]int, n+1)
 		dp[i][0] = 1
 	}
+	//默认值为1，因为任何n都至少有一种表达结果（全是1），n>=1
 	for i := range dp[0] {
 		dp[0][i] = 1
 	}
-	//边界取值为1，因为任何n都至少有一种表达结果（全是1），n>=1
+	//为什么外层循环用coins，为了去重10+5和5+10是一种组合的情况
 	for i := 1; i < 4; i++ {
 		for j := 1; j < n+1; j++ {
 			if j >= coins[i] {

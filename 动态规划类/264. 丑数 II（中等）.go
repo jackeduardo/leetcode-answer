@@ -11,24 +11,23 @@ func main() {
 	fmt.Println(nthUglyNumber(10))
 }
 func nthUglyNumber(n int) int {
-	dp:=make([]int,n)
-	dp[0]=1
-	a,b,c:=0,0,0
-	for i := 1; i<n; i++ {
-		dp[i]=Methods.Min(2*dp[a],Methods.Min(3*dp[b],5*dp[c]))
-		if dp[i]==2*dp[a]{
+	dp := make([]int, n)
+	dp[0] = 1
+	a, b, c := 0, 0, 0
+	for i := 1; i < n; i++ {
+		dp[i] = Methods.Min(2*dp[a], Methods.Min(3*dp[b], 5*dp[c]))
+		if dp[i] == 2*dp[a] {
 			a++
 		}
-		if dp[i]==3*dp[b]{
+		if dp[i] == 3*dp[b] {
 			b++
 		}
-		if dp[i]==5*dp[c]{
+		if dp[i] == 5*dp[c] {
 			c++
 		}
 	}
 	return dp[n-1]
 }
-
 
 //最小堆，摘抄
 func nthUglyNumber2(n int) int {
@@ -45,9 +44,15 @@ func nthUglyNumber2(n int) int {
 		// 接着把当前丑数乘以2,3,5后的候选值，加入最小堆中
 		// 由于候选集合增长非常快，有可能在还没有求出第n个丑数时，
 		// 就已经超出了整数最大值，于是这里使用整数的最大值进行约束
-		if 2*uglyNum <= math.MaxInt32 { heap.Push(&h, 2*uglyNum) }
-		if 3*uglyNum <= math.MaxInt32 { heap.Push(&h, 3*uglyNum) }
-		if 5*uglyNum <= math.MaxInt32 { heap.Push(&h, 5*uglyNum) }
+		if 2*uglyNum <= math.MaxInt32 {
+			heap.Push(&h, 2*uglyNum)
+		}
+		if 3*uglyNum <= math.MaxInt32 {
+			heap.Push(&h, 3*uglyNum)
+		}
+		if 5*uglyNum <= math.MaxInt32 {
+			heap.Push(&h, 5*uglyNum)
+		}
 		n-- // 计算出一个新的丑数后n要减一
 	}
 	// 循环结束后返回记录着的丑数即可

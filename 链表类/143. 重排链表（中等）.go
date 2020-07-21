@@ -6,37 +6,43 @@ import (
 )
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5}
+	arr := []int{1, 2, 3, 4,5}
 	head := Methods.MakeListNode(arr)
-	reorderList2(head)
+	reorderList(head)
 	Methods.PrintList(head)
 }
 
-//自己实现的笨方法，借助外部容器
+//快慢指针找中点，翻转后半段
 func reorderList(head *Types.ListNode) {
-	if head == nil {
+	if head==nil||head.Next==nil{
 		return
 	}
-	var list []*Types.ListNode
-	p1 := head
-	p2 := head
-	for p2.Next != nil {
-		list = append(list, p2)
-		p2 = p2.Next
+	slow,fast:=head,head
+	pre:=new(Types.ListNode)
+	pre.Next=slow
+	var newnode *Types.ListNode
+	for fast!=nil&&fast.Next!=nil{
+		pre=pre.Next
+		slow=slow.Next
+		fast=fast.Next.Next
 	}
-	for p1.Next != nil && p1.Next.Next != nil {
-		temp := p1.Next
-		p1.Next = p2
-		p2.Next = temp
-		p1 = p1.Next.Next
-		list[len(list)-1].Next = nil
-		p2 = list[len(list)-1]
-		list = list[:len(list)-1]
+	for slow!=nil{
+		slow.Next,newnode,slow=newnode,slow,slow.Next
 	}
+	pre.Next=nil
+	cur:=head
+	for cur!=nil&&newnode!=nil{
+		if cur.Next==nil&&newnode.Next!=nil{
+			cur.Next=newnode
+			break
+		}
+		cur.Next,cur,newnode.Next,newnode=newnode,cur.Next,cur.Next,newnode.Next
+	}
+
 
 }
 
-//同样是借助外部容器，不过代码优化了一下
+//借助外部容器
 func reorderList2(head *Types.ListNode) {
 	if head == nil {
 		return

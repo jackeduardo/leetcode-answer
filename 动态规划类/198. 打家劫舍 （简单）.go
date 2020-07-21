@@ -16,7 +16,7 @@ func main() {
 func rob(nums []int) int {
 	dp := make([]int, len(nums)+2)
 	dp[0] = 0
-	dp[1] = 0
+	dp[1] = nums[0]
 	for i := 2; i < len(dp); i++ {
 		dp[i] = Methods.Max(dp[i-1], nums[i-2]+dp[i-2])
 	}

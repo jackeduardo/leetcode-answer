@@ -1,6 +1,6 @@
 package Tools
 
-func convert(arr string) string {
+func Convert(arr string) string {
 	bytes := []byte(arr)
 	for i := 0; i < len(bytes); i++ {
 		if bytes[i] == '[' {
